@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,182 +10,178 @@
     <link rel="shortcut icon" href="/favicon_io (1)/favicon.ico" />
 
     <!-- Font Awesome Icons  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
 
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #3498db, #8e44ad, #e74c3c, #e67e22);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid deepskyblue;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 400px; /* Set a maximum width for the form */
+            width: 100%;
+        }
+
+        .inputs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            margin: 0 8px;
+            width: calc(33.33% - 16px);
+            margin-bottom: 16px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        .input {
+            border: 2px solid deepskyblue;
+            height: 3rem;
+            width: 100%;
+            border-radius: 7px;
+            padding: 8px;
+            margin-top: 4px;
+            outline: none;
+        }
+
+        .btn {
+            height: 3rem;
+            border: 2px solid deepskyblue;
+            background: deepskyblue;
+            color: white;
+            font-size: 16px;
+            border-radius: 7px;
+            padding: 8px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    </style>
 
     <title>Age Calculator❤️</title>
-  </head>
+</head>
 
-  <style>
-    * {
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background-color: #111827;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-    }
-
-    .calculator-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 2px solid deepskyblue;
-      padding: 20px;
-      border-radius: 20px;
-      max-width: 400px; /* Set a maximum width for the form */
-      width: 100%;
-    }
-
-    .inputs {
-      display: flex;
-      flex-wrap: wrap; /* Allow inputs to wrap on smaller screens */
-      justify-content: space-between; /* Add space between inputs */
-    }
-
-    .block {
-      display: flex;
-      flex-direction: column;
-      margin: 0 8px;
-      width: calc(
-        33.33% - 16px
-      ); /* Adjust the width of each block for three inputs */
-      margin-bottom: 16px; /* Add some bottom margin */
-    }
-
-    label {
-      font-size: 18px;
-    }
-
-    .input {
-      border: 2px solid deepskyblue;
-      height: 3rem;
-      width: 100%; /* Make the input width 100% within the block */
-      border-radius: 7px;
-      padding: 8px;
-      margin-top: 4px;
-      outline: none;
-    }
-
-    .btn {
-      height: 3rem;
-      border: 2px solid deepskyblue;
-      background: deepskyblue;
-      color: white;
-      font-size: 16px;
-      border-radius: 7px;
-      padding: 8px;
-      margin-top: 30px;
-      width: 100%; /* Make the button width 100% within the form */
-    }
-  </style>
-
-  <body>
+<body>
     <div class="calculator-form">
-      <h1>Age Calculator</h1>
-      <div class="inputs">
-        <div class="block">
-          <label for="date">Date</label>
-          <input
-            type="number"
-            max="31"
-            id="date"
-            class="input"
-            placeholder="dd"
-          />
+        <h1>Age Calculator</h1>
+        <div class="inputs">
+            <div class="block">
+                <label for="date">Date</label>
+                <input type="number" max="31" id="date" class="input" placeholder="dd" />
+            </div>
+            <div class="block">
+                <label for="month">Month</label>
+                <input type="text" id="month" class="input" placeholder="mm" pattern="[1-9]|1[0-2]"
+                    title="Please enter a valid month (1-12)" oninput="validateMonth()" />
+            </div>
+            <div class="block">
+                <label for="year">Year</label>
+                <input type="number" id="year" class="input" placeholder="yyyy" />
+            </div>
         </div>
-        <div class="block">
-          <label for="month">Month</label>
-          <input
-            type="text"
-            id="month"
-            class="input"
-            placeholder="mm"
-            pattern="[1-9]|1[0-2]"
-            title="Please enter a valid month (1-12)"
-            oninput="validateMonth()"
-          />
-        </div>
-        <div class="block">
-          <label for="year">Year</label>
-          <input type="number" id="year" class="input" placeholder="yyyy" />
-        </div>
-      </div>
 
-      <p id="para"></p>
-      <button type="submit" class="btn" onclick="calculateAge()">Submit</button>
-      <p id="displayAge"></p>
+        <p id="para"></p>
+        <button type="submit" class="btn" onclick="calculateAge()">Submit</button>
+        <p id="displayAge"></p>
     </div>
 
     <script>
-      let paraElemt = document.getElementById("para");
+        let paraElemt = document.getElementById("para");
 
-      const validateMonth = () => {
-        let monthInput = document.getElementById("month");
-        console.log(typeof monthInput.value);
-        if (parseInt(monthInput.value) > 12) {
-          paraElemt.textContent = "please enter valid month between 1-12";
-          console.log("gsggd");
-        } else {
-          paraElemt.textContent = "";
-          // monthInput.setCustomValidity("");
-        }
-      };
+        const validateMonth = () => {
+            let monthInput = document.getElementById("month");
+            console.log(typeof monthInput.value);
+            if (parseInt(monthInput.value) > 12) {
+                paraElemt.textContent = "please enter valid month between 1-12";
+                console.log("gsggd");
+            } else {
+                paraElemt.textContent = "";
+                // monthInput.setCustomValidity("");
+            }
+        };
 
-      const calculateAge = () => {
-        let monthInput = document.getElementById("month");
-        console.log(typeof monthInput.value);
+        const calculateAge = () => {
+            let monthInput = document.getElementById("month");
+            console.log(typeof monthInput.value);
 
-        if (parseInt(monthInput.value) > 12) {
-          console.log("some error in mo");
-          alert("soo please enter valid month between 1-12");
-        } else {
-          console.log("all clear");
-          let d1 = document.getElementById("date").value;
-          let m1 = document.getElementById("month").value;
-          let y1 = document.getElementById("year").value;
+            if (parseInt(monthInput.value) > 12) {
+                console.log("some error in mo");
+                alert("soo please enter valid month between 1-12");
+            } else {
+                console.log("all clear");
+                let d1 = document.getElementById("date").value;
+                let m1 = document.getElementById("month").value;
+                let y1 = document.getElementById("year").value;
 
-          let date = new Date();
-          let d2 = date.getDate();
-          let m2 = 1 + date.getMonth();
-          let y2 = date.getFullYear();
-          let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                let date = new Date();
+                let d2 = date.getDate();
+                let m2 = 1 + date.getMonth();
+                let y2 = date.getFullYear();
+                let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-          if (d1 > d2) {
-            d2 = d2 + month[m2 - 1];
-            m2 = m2 - 1;
-          }
+                if (d1 > d2) {
+                    d2 = d2 + month[m2 - 1];
+                    m2 = m2 - 1;
+                }
 
-          if (m1 > m2) {
-            m2 = m2 + 12;
-            y2 = y2 - 1;
-          }
+                if (m1 > m2) {
+                    m2 = m2 + 12;
+                    y2 = y2 - 1;
+                }
 
-          let d = d2 - d1;
-          let m = m2 - m1;
-          let y = y2 - y1;
+                let d = d2 - d1;
+                let m = m2 - m1;
+                let y = y2 - y1;
 
-          document.getElementById(
-            "displayAge"
-          ).innerText = `Your Age is ${y} Years, ${m} Months and ${d} Days`;
-        }
-      };
+                document.getElementById(
+                    "displayAge"
+                ).innerText = `Your Age is ${y} Years, ${m} Months and ${d} Days`;
+            }
+        };
     </script>
-  </body>
+</body>
+
 </html>
