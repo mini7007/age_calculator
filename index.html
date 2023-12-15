@@ -98,7 +98,7 @@
             </div>
             <div class="block">
                 <label for="month">Month</label>
-                <input type="number" min="1" max="12" id="month" class="input" placeholder="mm">
+                <input type="number" min="1" max="12" id="month" class="input" placeholder="mm" oninput="validateMonth()">
             </div>
             <div class="block">
                 <label for="year">Year</label>
@@ -110,16 +110,19 @@
     </div>
 
     <script>
+        const validateMonth = () => {
+            let monthInput = document.getElementById("month");
+            if (monthInput.value > 12) {
+                monthInput.setCustomValidity("Please enter a valid month (1-12)");
+            } else {
+                monthInput.setCustomValidity("");
+            }
+        }
+
         const calculateAge = () => {
             let d1 = document.getElementById("date").value;
             let m1 = document.getElementById("month").value;
             let y1 = document.getElementById("year").value;
-
-            // Add a condition to limit the month input to a maximum of 12
-            if (m1 > 12) {
-                alert("Please enter a valid month (1-12)");
-                return;
-            }
 
             let date = new Date();
             let d2 = date.getDate();
