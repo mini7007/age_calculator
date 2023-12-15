@@ -115,6 +115,12 @@
             let m1 = document.getElementById("month").value;
             let y1 = document.getElementById("year").value;
 
+            // Add a condition to limit the month input to a maximum of 12
+            if (m1 > 12) {
+                alert("Please enter a valid month (1-12)");
+                return;
+            }
+
             let date = new Date();
             let d2 = date.getDate();
             let m2 = 1 + date.getMonth();
@@ -122,7 +128,7 @@
             let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
             if (d1 > d2) {
-                d2 = d2 + month[m2 - 1]
+                d2 = d2 + month[m2 - 1];
                 m2 = m2 - 1;
             }
 
